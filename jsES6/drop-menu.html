@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉菜单</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: none;
+        }
+
+        #bg {
+            width: 600px;
+            border: 2px solid teal;
+            margin: 30px auto;
+        }
+
+        a {
+            /* 设置宽高 */
+            display: inline-block;
+            width: 100px;
+            height: 36px;
+            text-align: center;
+            background-color: antiquewhite;
+            line-height: 25px;
+        }
+
+        a:hover {
+            color: rgb(78, 134, 134);
+        }
+
+        a:link,
+        a:visited {
+            text-decoration: none;
+        }
+
+        li {
+            float: left;
+        }
+
+        #mn li {
+            /* 存在float元素时,给元素设置clear:left;后，该元素会 “避开” 左侧的浮动元素，确保自身的左侧没有任何浮动元素，从而在左侧浮动元素的下方显示
+            设置分支左侧浮动不受影响 */
+            clear: left;
+            margin-top: 1px;
+        }
+
+        /* 默认不展开，需定义position */
+        #bg li{
+            position: relative;
+        }
+        #mn{
+            display: none;
+            position: absolute;
+        }
+    </style>
+
+    <script type="text/javascript">
+        // alert("警告")
+        // prompt('请输入姓名','例如张三') 
+
+        // js控制下拉菜单的显示和隐藏
+        // 等待页面元素加载完成后再执行window.onload（避免获取不到元素）
+        window.onload = function () {
+            var btn = document.getElementById('btn');
+            var mn = document.getElementById('mn');
+            btn.onmouseover = function () {
+                mn.style.display = 'block';
+            }
+            btn.onmouseout = function () {
+                mn.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="bg">
+        <li><a href="#">糖果</a></li>
+        <li id="btn"><a href="#">巧克力</a>
+            <ul id="mn">
+                <li><a href="#">黑巧</a></li>
+                <li><a href="#">真巧</a></li>
+            </ul>
+        </li>
+        <li><a href="#">泡面</a></li>
+        <li><a href="#">矿泉水</a></li>
+    </ul>
+</body>
+
+</html>
