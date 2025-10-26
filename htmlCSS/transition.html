@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过渡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        .mn{
+            width: 400px;
+            height: 100px;
+            background-color: blue;
+            font-weight: bold;
+            color: bisque;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 100px;
+        }
+        /* 悬停时颜色过渡 */
+        div:hover{
+            background-color: rgb(168, 62, 62);
+            transition-property: background-color;
+            /* 要求有过渡效果时，必须加过渡时间  */
+            transition-duration: 5s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 加上选择器清除原div样式,清除两个色块变化以及line-height无法居中的问题 -->
+    <div class="mn">过渡</div>
+</body>
+</html>

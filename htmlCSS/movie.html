@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>movie</title>
+    <style>
+        *{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 1200px;
+            height: 400px;
+            margin: 0,auto;
+            border: 1px solid;
+            background-color: gray;
+            position: relative;
+        }
+        video{
+            width: 800px;
+            height: 400px;
+            position: absolute;
+            left: 10px;
+
+        }
+        ul{
+            width: 350px;
+            height: 400px;
+            position: absolute;
+            right: 10px;
+            border: 1px solid rgb(73, 75, 75);
+        }
+        li{
+            width: 350px;
+            height: 114px;
+            border-bottom: 1px solid rgb(95, 89, 84);
+            margin-top: 2px;
+            margin-bottom: 20px;
+        }
+        img{
+            width: 150px;
+            float: left;
+        }
+        p{
+            width: 150px;
+            float: right;
+            padding-right: 30px;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <!-- 自动播放 音频控件 结束时重新播放 -->
+        <video src="imgs/tk.mp4" autoplay controls loop></video>
+        <ul>
+            <li>
+                <img src="imgs/dai.jpg" alt="d">
+                <p>我追随的光，是五角星的光</p>
+            </li>
+            <li>
+                <img src="imgs/tuya.jpg" alt="t">
+                <p>生逢盛世，当不负盛世</p>
+            </li>
+            <li>
+                <img src="imgs/dong.jpg" alt="o">
+                <p>我就这么坐着，生活给什么我就接着，拿走什么我就看着</p>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

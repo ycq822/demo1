@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>people</title>
+    <style>
+        @keyframes move{
+            from{
+                transform: translate(0) scaleX(-1);
+            }
+            50%{
+                transform: translate(500px) scaleX(-1);
+            }
+            51%{
+                transform: translate(500px);
+            }
+            to{
+                transform: translate(0px);
+            }
+        }
+        img{
+            width: 200px;
+            animation-name: move;
+            animation-duration: 3s;
+        }
+    </style>
+</head>
+<body>
+    <img src="imgs/ha.jpg" alt="ha">
+</body>
+</html>

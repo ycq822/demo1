@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>box</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            /* 改变总宽度计量方式 */
+            box-sizing: border-box;
+        }
+        .wai{
+            width: 200px;
+            height: 190px;
+            background: linear-gradient(to bottom,#7a4a7a,#9a6a8a,#b87a8a);
+            /* 圆角效果 */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .middle{
+            width: 130px;
+            height: 130px;
+            background: linear-gradient(to bottom,#8b3c4f,#753d7f) center center no-repeat;
+            display: flex;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .inner{
+            width: 80px;
+            height: 70px;
+            background: linear-gradient(to bottom,#e6b2a5,#9a6060) center center no-repeat;
+            border-radius: 5px;
+            border: 6px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn{
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            position: relative;
+        }
+        .btn::after{
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-40%,-50%);
+            width: 0;
+            height: 0;
+            /* 上下边框透明，左边框设宽度▶；每个边框都是梯形，元素宽高为0时则变三角形 */
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 15px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="wai">
+        <div class="middle">
+            <div class="inner">
+                <div class="btn"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

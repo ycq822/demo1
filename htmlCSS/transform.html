@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素变形翻转</title>
+    <style>
+        .be{
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background-color: aquamarine;
+            
+        }
+        .af{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: aquamarine; 
+            /* 改变焦点
+            transform-origin: 10% 10% 10px; */
+            transform: rotate(45deg);
+            /* 多个transform会覆盖，只保留最后一个的效果 */
+            /* transform: translate(100px,30px); */
+        }
+        .fan{
+            width: 200px;
+            height: 200px;
+            border: 2px solid tan;
+            position: relative;
+            transition: all 1s ease 0s;
+            transform-style: preserve-3d;
+            margin-top: 150px;
+            margin: 0 auto;
+        }
+        img{
+            /* 设置图片根据父标签等比例适应——width+object-fit */
+            width: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* 旋转后的位置 */
+            transform: translateZ(90px);
+        }
+        .mn2{
+            /* width: 100%;
+            object-fit: cover; */
+            /* 翻转图片过来的位置和翻转角度（角度90时隐藏） */
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .fan:hover{
+            /* 向下翻转 */
+            transform: rotateX(-90deg);
+        }
+        .fan:visited{
+            transform: rotateX(90deg);
+            transition: all 1s ease 0s;
+            transform-style: preserve-3d;
+        }
+        .ka{
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+            position: relative;
+        }
+        .kk,.aa{
+            width: 100%;
+            object-fit: cover;
+            position: absolute;
+            backface-visibility: hidden;
+            transition: all 1s linear 0s;
+        }
+        .aa{
+            /* 顺时针转 */
+            transform: rotateY(180deg);
+        }
+        .ka:hover .aa{
+            transform: rotateY(0deg);
+        }
+        .ka:hover .kk{
+            transform: rotateY(-180deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- translate\scale\skew\rotate
+     改变中心点—— transform-origin：x,y,z -->
+    <div class="be">平移前</div>
+    <div class="af">平移后</div>
+
+    <!-- 上下翻转 -->
+    <div class="fan">
+        <img class="mn1" src="imgs/username.jpg" alt="1">
+        <img class="mn2" src="imgs/milu.jpg" alt="2">
+    </div>
+
+    <!-- 左右翻转 -->
+    <div class="ka">
+        <img class="kk" src="imgs/username.jpg" alt="3">
+        <img class="aa" src="imgs/milu.jpg" alt="4">
+    </div>
+</body>
+</html>

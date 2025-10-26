@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页模块布局</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-size: 24px;
+            text-align: center;
+        }
+        div{
+            width: 980px;
+            margin: 5px auto;
+            background: rgb(192, 164, 164);
+        }
+        #top{
+            height: 40px;
+        }
+        #topbar{
+            /* 选择器优先级   */
+            width: 100%;
+            height: 60px;
+            background-color: gray;
+        }
+        .nav{
+            /* 通栏布局：父子内容都设置高度，父设width:100%——div、topbar */
+            height: 60px;
+        }
+        .banner{
+            height: 200px;
+        }
+        .content{
+            height: 200px;
+            
+        }
+        .left{
+            width: 200px;
+            height: 195px;
+            float: left;
+            border-right: 3px solid tan;
+            transform: translateY(-2px);
+        }
+        .middle{
+            width: 200px;
+            height: 195px;
+            float: left;
+            border-right: 3px solid tan;
+
+        }
+        .right{
+            width: 200px;
+            height: 195px;
+            float: right;
+            border-left: 3px solid tan;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="top">头部</div>
+    <div id="topbar">
+        <div class="nav">导航栏</div>
+    </div>
+    <div class="banner">焦点图</div>
+    <div class="content">
+        <div class="left">1</div>
+        <div class="middle">2</div>
+        <div class="right">3</div>
+    </div>
+    <div id="footer">
+        <div class="inner">页面底部</div>
+    </div>
+</body>
+</html>

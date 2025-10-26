@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页的列表与超链接</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            /* 移除元素的轮廓线——元素获得焦点时（如表单输入框被点击、链接被选中）显示的一圈线条 */
+            outline: none;
+
+        }
+         body {
+            font-family: "微软雅黑";
+            font-size: 14px;
+
+        }
+
+        a:link,a:visited {
+            color: #f4f4e1;
+            /* 文本装饰线 */
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #efef6d;
+        }
+
+
+        .bg{
+            width: 461px;
+            height: 532px;
+            background: #ce4d52;
+            margin: 10px auto;
+        }
+        h2{
+            width: 100%;
+            height: 210px; 
+            background: url(imgs/dai.jpg) no-repeat;
+            /* 设置图片等比例缩放，可能剪裁 ；留白的话用contain*/
+            background-size: cover;
+            /* 设层叠优先级，让其在上方 */
+            z-index: 100;
+            border-bottom: 1px solid #8d2327;
+            /* 设居中调height调节展示样式 */
+            background-position: center;
+        }
+        ul {
+            width: 461px;
+            border-top: 1px solid #e68589;
+        }
+        a {
+            display: inline-block;
+            width: 461px;
+            height: 90px;
+            border-bottom: 2px solid rgb(204, 235, 93);
+            /* background: url(imgs/tuya.jpg) no-repeat center; */
+            /* 上右下左 */
+            /* padding: 42px 0 0 10px;  */
+            padding-top: 15px;
+        }
+        .bono{
+            border-bottom: none;
+        }
+        a span {
+            display: inline-block;
+            width: 110px;
+            height: 60px;
+            text-align: right;
+        }
+        a .num,a .descript {
+            /* 控制行内元素（inline）、行内块元素（inline-block）或表格单元格（table-cell）在垂直方向上的对齐方式 */
+            vertical-align: middle;
+            width: 120px;
+        }
+        a:hover .num {
+            color: #efef6d;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="bg">
+        <h2></h2>
+        <ul>
+            <li>
+                <a href="#">
+                    <span>印刷流程<br />广告设计<br />企业形象设计</span>
+                    <span class="num">1</span>
+                    <span class="descript">平面设计</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>页面设计<br />HTML+CSS<br />JS和JQ交互特效</span>
+                    <span class="num">2</span>
+                    <span class="descript">网页设计</span>
+                </a>
+            </li>
+            <li>
+                <a href="#"  class="bono">
+                    <span>视觉创意设计<br />人机交互原则<br />UI设计规范</span>
+                    <span class="num">3</span>
+                    <span class="descript">UI设计</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

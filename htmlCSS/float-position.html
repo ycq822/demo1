@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>焦点图——浮动&定位</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            /* width: 1024px; */
+            text-align: center;
+        }
+
+        img{
+            height: 355px;
+        }
+        /* 子绝父相 */
+        div {
+            width: 616px;
+            height: 237px;
+            margin: 20px auto;
+            position: relative;
+        }
+        ul{
+            position: absolute;
+            left: 269px;
+            top: 212px;
+        }
+        li{
+            /* 若不对父标签定义高度，则子标签的浮动会对父标签产生影响
+            clear:both清除不了这种影响
+            可设完浮动后再清除（空标签(样式中再设clear：both)、overflow:hidden(写在被影响标签中)、:after伪对象【display:block;clear:both;content:""；height:0】*/
+            float: left;
+            background: url(imgs/logo.png) no-repeat;
+            width: 25px;
+            height: 11px;
+        }
+        .one{
+            background: url(imgs/username.jpg) no-repeat;
+        }
+        .left{
+            /* 行内块——同行，不独占，可设宽高（img、input） */
+            display: inline-block;
+            background: url(imgs/username.jpg) no-repeat;
+            width: 49px;
+            height: 49px;
+            position: absolute;
+            left: 100px;
+            top: 92px;
+        }
+        .rigth{
+            display: inline-block;
+            background: url(imgs/username.jpg) no-repeat;
+            width: 49px;
+            height: 49px;
+            position: absolute;
+            left: 470px;
+            top: 92px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="imgs/dong.jpg" alt="我的世界"/>
+        <ul>
+            <!-- 切换图标可用浮动使其排在同一行，然后定位固定 -->
+            <li></li>
+            <li class="one"></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <span class="left"></span>
+        <span class="rigth"></span>
+    </div>
+</body>
+</html>

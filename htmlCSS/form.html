@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册页面表单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+            list-style: none;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif, "宋体";
+            font-size: 16px;
+            width: 1024px;
+            height: 768px;
+            margin: 10px auto;
+            background-color: rgb(222, 215, 215);
+        }
+
+        /* 超链接的默认样式和被访问后的样式 */
+        a:link,
+        a:visited {
+            text-decoration: none;
+            color: #999;
+        }
+
+        /* 鼠标经过、悬停时的样式 */
+        a:hover {
+            color: #F30;
+        }
+
+        h1 {
+            width: 900px;
+            height: 70px;
+            /* 块级元素水平居中（上下、左右外边距）
+            条件：块级；明确宽度<父容器；父容器不能设浮动和overflow */
+            margin: 0 auto;
+            background-color: rgb(34, 222, 159);
+            text-align: center;
+            letter-spacing: 25px;
+
+        }
+
+        .con {
+            width: 880px;
+            height: 480px;
+            margin: 0 auto;
+            color: #53c2a2;
+            /* background-color: rgb(34, 222, 159); */
+            margin-top: 10px;
+            border: 10px solid #fff;
+
+            letter-spacing: 15px;
+        }
+        .con1{
+            border-bottom: 3px solid white;
+        }
+        .con1 p {
+            /* width: 870px; */
+            height: 45px;
+            /* background: repeat-x; */
+            /* background-color: #eeecec; */
+            text-align: left;
+            font-size: 23px;
+            line-height: 50px;
+            font-family: "微软雅黑";
+            /* background: no-repeat left center; */
+            padding-left: 10px;
+            margin-left: 10px;
+
+        }
+
+        .con2 {
+            width: 404px;
+            margin: 0 auto;
+        }
+
+        .icon1,.icon2,.icon3,.icon4 {
+            width: 350px;
+            height: 39px;
+            /* line-height: 39px; */
+            color: #999;
+            font-size: 16px;
+            /* 文本粗细 */
+            font-weight: 600;
+            padding-left: 50px;
+            border: 2px solid #7f9db9;
+            margin-top: 30px;
+        }
+
+        .btn {
+            width: 400px;
+            height: 39px;
+            background-color: #53c2a2;
+            padding-left: 30px;
+            font-size: 18px;
+            color: #FFF;
+            border: 2px solid #7f9db9;
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wai">
+        <!-- 暴富网站 -->
+        <h1>暴富网站</h1>
+        <div class="con">
+            <div class="con1">
+                <p>注册新用户</p>
+            </div>
+            <!-- 可通过p标签嵌套input等表单控件 -->
+            <form action="#" method="post" class="con2">
+                <input class="icon1" type="text" value="用户名" />
+                <input class="icon2" type="text" value="密码" />
+                <input class="icon3" type="text" value="确认密码" />
+                <input class="icon4" type="email" value="电子邮件" />
+                <input class="btn" type="submit" value="注册新用户" />
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

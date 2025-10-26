@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图像转动——  过渡&动画</title>
+    <style>
+        /* 创建动画——@keyframes规则+animation属性 */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        @keyframes mi{
+            from{
+                transform: translate(0);
+            }
+            to{
+                transform: translate(300px);
+            }
+        }
+
+        .zhuan {
+            position: absolute;     
+            top: 180px;
+            left: 400px;
+            animation: spin 2s linear infinite;
+        }
+
+        .sha { 
+            position: absolute;
+            animation: mi 2s alternate;
+        }
+    </style>
+</head>
+<body>
+    <div class="sha">
+        <img src="imgs/milu.jpg" alt="sha">
+    </div>
+    <div class="zhuan">
+        <img src="imgs/dai.jpg" alt="zhuan">
+    </div>
+</body>
+</html>

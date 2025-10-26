@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音视频</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .bg{
+            width: 600px;
+            height: 300p;
+            /* 调整整体位置 */
+            padding-left: 20%;
+            border: 1px solid rgb(184, 115, 184);
+            /* 居中样式只对flex布局和grid布局有效，且不要有浮动脱离文档流 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        video{
+            width: 200px;
+            height: 300px;
+            /* float: left; */
+        }
+        p{
+            width: 200px;
+            height: 300px;
+
+            float: left;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        <p>1</p>
+        <video src="imgs/tk.mp4" controls="controls"></video>   
+        <p>2</p>
+    </div>
+
+</body>
+</html>
