@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>限时秒杀</title>
+    <style>
+        *,body{
+            font-size: 20px;
+            color: antiquewhite;
+            font-family: microsoft yahei arial;
+        }
+        img{
+            list-style: none;
+            outline: none;
+        }
+        .img-box{
+            position: relative;
+            background: url(imgs/to.jpg);
+            width: 800px;
+            height: 550px;
+            margin: 0,auto;
+        }
+        span{
+            position: relative;
+            text-align: center;
+            line-height: 26px;
+            margin: 4px 0 0;
+        }
+
+        #hour{
+            left: 35%;
+            /* 覆盖
+            top: 700px; */
+            font-weight: bold;
+        }
+        #minute{
+            left: 36.6%;
+            font-weight: bold;
+
+        }
+        #second{
+            left: 38.8%;
+            font-weight: bold;
+
+        }
+        #bot-box{
+            position: absolute;
+            z-index: 1;
+            display: none;
+            top: 500px;
+            color: antiquewhite;
+            font-size: 28px;
+            text-align: center;
+            line-height: 40px;
+            /* width: 700px; */
+            height: 300px;
+            width: 100%;
+            padding: 60px 0;
+            background: black; /* 半透明黑底，突出文字 */
+        }
+    </style>
+    <script>
+        function fresh(){
+            var endtime=new Date("2025/10/27,10:00:00");
+            var nowtime=new Date();
+
+            var leftsecond=parseInt((endtime.getTime()-nowtime.getTime())/1000)
+            // 计算时、分、秒（处理负数情况）;parseInt将值转换为整数
+            let h = Math.max(0, parseInt(leftsecond/3600));
+            let m = Math.max(0, parseInt((leftsecond/60) % 60));
+            let s = Math.max(0, parseInt(leftsecond % 60));
+            h = h < 10 ? "0" + h : h;
+            m = m < 10 ? "0" + m : m;
+            s = s < 10 ? "0" + s : s;
+            // 获取或设置 HTML 元素的内部 HTML 内容（包括标签），是动态修改页面内容的核心属性
+            //innerHTML会覆盖原有内容
+            document.getElementById("hour").innerHTML=h;
+            document.getElementById("minute").innerHTML=m;
+            document.getElementById("second").innerHTML=s;
+
+            if(leftsecond<=0){
+                document.getElementById("bot-box").style.display="block";
+                // document.getElementById("bot-box").style.background="url(imgs/)";
+                document.getElementById("bot-box").innerHTML="秒杀已结束";
+                clearInterval(sh);
+            }
+        }
+        var sh=setInterval(fresh,1000);
+    </script>
+</head>
+<body>
+    <div class="img-box">
+        <span id="hour"></span><span id="minute"></span><span id="second"></span>
+        <div id="bot-box"></div>
+    </div>
+</body>
+</html>
