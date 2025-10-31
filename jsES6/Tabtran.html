@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab栏转换</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            font-family: "宋体";
+            list-style: none; /* 清除列表默认样式 */
+        }
+        .tab-box{
+            width: 400px;
+            margin: 10px;
+            border: 2px solid tan;
+            border-top: 5px solid rgb(79, 147, 125);
+        }
+        #tab-head{
+            height: 31px;
+        }
+        .tab-head-div{
+            width: 98px;
+            height: 30px; /* 与父元素高度一致，避免底部边框间隙 */
+            float: left;
+            border-bottom: 1px solid antiquewhite;
+            border-right: 2px solid lavenderblush;
+            background-color: rgb(113, 98, 126);
+            text-align: center;
+            line-height: 30px; /* 垂直居中文字 */
+            cursor: pointer;
+        }
+        .tab-head-div:hover{
+            color: rgb(140, 188, 91);
+        }
+        /* 选中状态样式：头部高亮，内容显示 */
+        /* 通过给元素添加 current 类，配合 CSS 样式和 JavaScript 逻辑，实现 “当前状态” 与 “非当前状态” 的视觉区分和功能切换 */
+        .tab-head-div.current{
+            background-color: #fff; /* 选中时背景变白 */
+            border-bottom-color: #b17b7b; /* 底部边框与背景融合，隐藏分隔线 */
+        }
+        .tab-body-ul{
+            display: none; /* 默认隐藏所有内容 */
+            margin: 20px 10px;
+        }
+        .tab-body-ul.current{
+            display: block; /* 选中项显示 */
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var tabHd = document.getElementById("tab-head").getElementsByClassName("tab-head-div");
+            var tabBd = document.getElementById("tab-body").getElementsByClassName("tab-body-ul");
+            var index = 0;
+            var timer = setInterval(autoChange, 1000); // 自动切换计时器
+
+            // 初始化：默认显示第一个tab,current类第一个内容区会默认显示，其他内容区默认隐藏）
+            tabHd[0].classList.add("current");
+            tabBd[0].classList.add("current");
+
+            // 为每个头部添加鼠标悬停事件
+            for(let i = 0; i < tabHd.length; i++){ // 用let解决闭包问题
+                tabHd[i].onmouseover = function(){
+                    clearInterval(timer); // 鼠标悬停时停止自动切换
+                    changeTab(i); // 切换到第i个tab
+                };
+                tabHd[i].onmouseout = function(){
+                    // 鼠标离开后恢复自动切换
+                    timer = setInterval(autoChange, 5000);
+                };
+            }
+
+            // 切换tab的通用函数
+            function changeTab(currentIndex){
+                // 先移除所有选中状态
+                for(let j = 0; j < tabHd.length; j++){
+                    tabHd[j].classList.remove("current");
+                    tabBd[j].classList.remove("current");
+                }
+                // 给当前索引添加选中状态
+                tabHd[currentIndex].classList.add("current");
+                tabBd[currentIndex].classList.add("current");
+                index = currentIndex; // 更新当前索引，避免自动切换错乱
+            }
+
+            // 自动切换函数
+            function autoChange(){
+                index = (index + 1) % tabHd.length; // 循环切换（0→1→2→3→0...）
+                changeTab(index); // 调用通用切换函数
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="tab-box">
+        <div id="tab-head">
+            <div class="tab-head-div">网页设计</div>
+            <div class="tab-head-div">前端开发</div>
+            <div class="tab-head-div">人工智能</div>
+            <div class="tab-head-div">电商运营</div>
+        </div>
+        <div id="tab-body">
+            <ul class="tab-body-ul">
+                <li>自由散漫的凉风会治愈乱糟糟的坏心情。</li>
+                <li>我述我，不论平仄或正格</li>
+            </ul>
+            <ul class="tab-body-ul">
+                <li>失去就失去，出发的飞鸟，永不回头</li>
+                <li>我愿是风，不识字，却翻遍山河万卷</li>
+            </ul>
+            <ul class="tab-body-ul">
+                <li>不被情绪所裹挟，才是更高级的自由</li>
+                <li>山中无甲子，世事都如烟</li>
+            </ul>
+            <ul class="tab-body-ul">
+                <li>风乍起，合当奋意向人生</li>
+                <li>烂漫不过世间花，慢煮光阴一盏茶</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
