@@ -4,8 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>测试</title>
+    <script>
+        function getmax(arr){
+            var max=arr[0];
+            for(var i=0;i<arr.length;i++){
+                if(arr[i]>max){
+                    max=arr[i];
+                }
+            }
+            return max;
+        }
+        console.log(getmax([5,2,99,101,97,77]));
+    </script>
+      
 </head>
 <body>
-    <input type="button" value="点我试试" onclick="alert('唐天爽牛儿太小')"/>
+    <!-- <input type="text" id="inarr" placeholder="请输入6个元素"/>
+    <button onclick="showArray()">查看数组</button> 
+    <button onclick="getmax()">求最大值</button>  -->
 </body>
 </html>
