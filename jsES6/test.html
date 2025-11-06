@@ -29,27 +29,40 @@
         // var arr1=reverse([5,4,3,2,1]);
         // console.log(arr1);
 
-        function getRandom(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-        var random = getRandom(1, 100);
-        var i = 0
-        while (true) { // 死循环
-            if (i >= 3) {
-                alert('次数用完啦！正确答案是：' + random);
-                break;
+        // function getRandom(min, max) {
+        //     return Math.floor(Math.random() * (max - min + 1)) + min;
+        // }
+        // var random = getRandom(1, 100);
+        // var i = 0
+        // while (true) { // 死循环
+        //     if (i >= 3) {
+        //         alert('次数用完啦！正确答案是：' + random);
+        //         break;
+        //     }
+        //     var num = prompt('你来猜？ 输入1~100之间的一个数字');
+        //     if (num > random) {
+        //         alert('你猜大了');
+        //     } else if (num < random) {
+        //         alert('你猜小了');
+        //     } else {
+        //         alert('你好帅哦，猜对了');
+        //         break; // 退出整个循环结束程序
+        //     }
+        //     i++;
+        // }
+
+        function unique(arr) {
+            var newArr = [];
+            for (var i = 0; i < arr.length; i++) {
+                // newArr中找不到索引对应元素，就推送到新数组中
+                if (newArr.indexOf(arr[i]) === -1) {
+                    newArr.push(arr[i]);
+                }
             }
-            var num = prompt('你来猜？ 输入1~100之间的一个数字');
-            if (num > random) {
-                alert('你猜大了');
-            } else if (num < random) {
-                alert('你猜小了');
-            } else {
-                alert('你好帅哦，猜对了');
-                break; // 退出整个循环结束程序
-            }
-            i++;
+            return newArr;
         }
+        var demo = unique(['blue', 'green', 'blue'])
+        console.log(demo);
     </script>
 
 </head>
