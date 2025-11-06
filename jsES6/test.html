@@ -51,18 +51,39 @@
         //     i++;
         // }
 
-        function unique(arr) {
-            var newArr = [];
-            for (var i = 0; i < arr.length; i++) {
-                // newArr中找不到索引对应元素，就推送到新数组中
-                if (newArr.indexOf(arr[i]) === -1) {
-                    newArr.push(arr[i]);
-                }
-            }
-            return newArr;
+        // function unique(arr) {
+        //     var newArr = [];
+        //     for (var i = 0; i < arr.length; i++) {
+        //         // newArr中找不到索引对应元素，就推送到新数组中
+        //         if (newArr.indexOf(arr[i]) === -1) {
+        //             newArr.push(arr[i]);
+        //         }
+        //     }
+        //     return newArr;
+        // }
+        // var demo = unique(['blue', 'green', 'blue'])
+        // console.log(demo);
+
+        var str = "oabcoefoxyozzopp";
+        var index = str.indexOf('o');
+        var num = 0;
+        //字符出现时的处理
+        while (index !== -1) {
+            console.log(index);
+            num++;
+            index = str.indexOf('o', index + 1);
         }
-        var demo = unique(['blue', 'green', 'blue'])
-        console.log(demo);
+        console.log('o出现的次数是: ' + num);
+        // 求 red 出现的位置和次数
+        var arr=['red', 'blue', 'red', 'green', 'pink','red'];
+        var num=0;
+        var index=arr.indexOf('red');
+        while(index!=-1){
+            console.log(index);
+            num++;
+            index=arr.indexOf('red',index+1);
+        }
+        console.log('red出现的次数是: ' + num);
     </script>
 
 </head>
