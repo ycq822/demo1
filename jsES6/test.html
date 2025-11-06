@@ -5,16 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>测试</title>
     <script>
-        function getmax(arr){
-            var max=arr[0];
-            for(var i=0;i<arr.length;i++){
-                if(arr[i]>max){
-                    max=arr[i];
-                }
+        // function getmax(arr){
+        //     var max=arr[0];
+        //     for(var i=0;i<arr.length;i++){
+        //         if(arr[i]>max){
+        //             max=arr[i];
+        //         }
+        //     }
+        //     return max;
+        // }
+        // console.log(getmax([5,2,99,101,97,77]));
+        function reverse(arr){
+            // 初始length=0，随着i增加length也增加（自动更新并添加元素到尾部）
+            var newarr=[];
+            for(var i=arr.length-1;i>=0;i--){
+                newarr[newarr.length]=arr[i];
             }
-            return max;
+            return newarr;
         }
-        console.log(getmax([5,2,99,101,97,77]));
+        var arr1=reverse([5,4,3,2,1]);
+        console.log(arr1);
     </script>
       
 </head>
