@@ -64,26 +64,50 @@
         // var demo = unique(['blue', 'green', 'blue'])
         // console.log(demo);
 
-        var str = "oabcoefoxyozzopp";
-        var index = str.indexOf('o');
-        var num = 0;
-        //字符出现时的处理
-        while (index !== -1) {
-            console.log(index);
-            num++;
-            index = str.indexOf('o', index + 1);
+        // var str = "oabcoefoxyozzopp";
+        // var index = str.indexOf('o');
+        // var num = 0;
+        // //字符出现时的处理
+        // while (index !== -1) {
+        //     console.log(index);
+        //     num++;
+        //     index = str.indexOf('o', index + 1);
+        // }
+        // console.log('o出现的次数是: ' + num);
+        // // 求 red 出现的位置和次数
+        // var arr=['red', 'blue', 'red', 'green', 'pink','red'];
+        // var num=0;
+        // var index=arr.indexOf('red');
+        // while(index!=-1){
+        //     console.log(index);
+        //     num++;
+        //     index=arr.indexOf('red',index+1);
+        // }
+        // console.log('red出现的次数是: ' + num);
+
+        const str = 'abcoefoxyozzopp';
+        const countObj = {}; // 存储字符出现次数的对象
+
+        // 1. 统计每个字符的出现次数
+        for (let i = 0; i < str.length; i++) {
+            const char = str[i];
+            // 如果对象中已有该字符，次数+1；否则初始化为1
+            countObj[char] ? countObj[char]++ : countObj[char] = 1;
         }
-        console.log('o出现的次数是: ' + num);
-        // 求 red 出现的位置和次数
-        var arr=['red', 'blue', 'red', 'green', 'pink','red'];
-        var num=0;
-        var index=arr.indexOf('red');
-        while(index!=-1){
-            console.log(index);
-            num++;
-            index=arr.indexOf('red',index+1);
+
+        // 2. 找出出现次数最多的字符及其次数
+        let maxChar = '';
+        let maxCount = 0;
+
+        for (const char in countObj) {
+            if (countObj[char] > maxCount) {
+                maxCount = countObj[char];
+                maxChar = char;
+            }
         }
-        console.log('red出现的次数是: ' + num);
+
+        console.log(`出现次数最多的字符是：'${maxChar}'，出现了 ${maxCount} 次`);
+        
     </script>
 
 </head>
