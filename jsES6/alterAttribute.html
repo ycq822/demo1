@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点击切换</title>
+    <style>
+        img{
+            width: 474px;
+            height: 474px;
+        }
+    </style>
+</head>
+<body>
+    <button id="lf">路飞</button>
+    <button id="sl">索隆</button>
+    <br/>
+    <img src="imgs/lufei.jpg" alt="稍等" title="路飞"/>
+    <script>
+        var lf=document.getElementById('lf');
+        var sl=document.getElementById('sl');
+        var img=document.querySelector('img');
+        lf.onclick=function(){
+            img.src='imgs/lufei.jpg';
+            img.title='路飞';
+        }
+        sl.onclick=function(){
+            img.src='imgs/solo.jpg';
+            img.title='索隆';
+        }
+    </script>
+</body>
+</html>
