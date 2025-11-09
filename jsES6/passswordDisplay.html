@@ -32,25 +32,25 @@
 <body>
     <div class="box">
         <label for="">
-            <img src="images/close.png" alt="" id="eye">
+            <img src="imgs/lufei.jpg" alt="" id="boy">
         </label>
         <input type="password" name="" id="pwd">
     </div>
     <script>
         // 1. 获取元素
-        var eye = document.getElementById('eye');
+        var boy = document.getElementById('boy');
         var pwd = document.getElementById('pwd');
         // 2. 注册事件 处理程序
         var flag = 0;
-        eye.onclick = function() {
+        boy.onclick = function() {
             // 点击一次之后， flag 一定要变化
             if (flag == 0) {
                 pwd.type = 'text';
-                eye.src = 'images/open.png';
+                boy.src = 'imgs/lufei.jpg';
                 flag = 1; // 赋值操作
             } else {
                 pwd.type = 'password';
-                eye.src = 'images/close.png';
+                boy.src = 'imgs/ai.jpg';
                 flag = 0;
             }
 
