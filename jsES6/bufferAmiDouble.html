@@ -37,7 +37,9 @@
         // 1. 让盒子每次移动的距离慢慢变小， 速度就会慢慢落下来。
         // 2. 核心算法：(目标值 - 现在的位置) / 10 做为每次移动的距离 步长
         // 3. 停止的条件是： 让当前盒子位置等于目标位置就停止定时器
-        function animate(obj, target) {
+        function animate(obj, target, callback) {
+            // console.log(callback);  callback = function() {}  调用的时候 callback()
+
             // 先清除以前的定时器，只保留当前的一个定时器执行
             clearInterval(obj.timer);
             obj.timer = setInterval(function() {
@@ -49,6 +51,11 @@
                 if (obj.offsetLeft == target) {
                     // 停止动画 本质是停止定时器
                     clearInterval(obj.timer);
+                    // 回调函数写到定时器结束里面
+                    if (callback) {
+                        // 调用函数
+                        callback();
+                    }
                 }
                 // 把每次加1 这个步长值改为一个慢慢变小的值  步长公式：(目标值 - 现在的位置) / 10
                 obj.style.left = obj.offsetLeft + step + 'px';
@@ -65,7 +72,10 @@
         })
         btn800.addEventListener('click', function() {
                 // 调用函数
-                animate(span, 800);
+                animate(span, 800, function() {
+                    // alert('你好吗');
+                    span.style.backgroundColor = 'red';
+                });
             })
             // 匀速动画 就是 盒子是当前的位置 +  固定的值 10 
             // 缓动动画就是  盒子当前的位置 + 变化的值(目标值 - 现在的位置) / 10）
