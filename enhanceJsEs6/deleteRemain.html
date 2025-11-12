@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除留言</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            padding: 100px;
+        }
+        textarea{
+            width: 200px;
+            height: 100px;
+            /* 取消输入时的默认深色边框 */
+            outline: none;
+            /* 默认可以拉伸，但是禁止用户拉伸边框 */
+            resize: none;
+        }
+        ul{
+            margin-top: 50px;
+        }
+        li{
+            width: 300px;
+            padding: 5px;
+            background-color: pink;
+            color: red;
+            font-size: 14px;
+            margin: 15px 0;
+
+        }
+        li a{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <textarea name="" id=""></textarea>
+    <button>发布</button>
+    <ul></ul>
+    <script>
+        var text=document.querySelector('textarea');
+        var btn=document.querySelector('button');
+        var ul=document.querySelector('ul');
+
+        btn.onclick=function(){
+            if(text.value==''){
+                alert("您没有输入内容");
+                return false;
+            }
+            var li=document.createElement('li');
+            // 将链接转为纯交互元素，不承担跳转功能
+            li.innerHTML=text.value+"<a href='javascript:;'>删除</a>";
+
+            ul.insertBefore(li,ul.children[0]);
+
+            var del=document.querySelectorAll('a');
+            for(var i=0;i<del.length;i++){
+                del[i].onclick=function(){
+                    // ul li a ;a的父元素是li
+                    ul.removeChild(this.parentNode);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
