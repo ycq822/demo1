@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉菜单（悬浮版）</title>
+    <style>
+        * {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .nav{
+            margin: 100px;
+        }
+        /* 一级导航栏 */
+        .nav>li{
+            position: relative;
+            float: left;
+            width: 80px;
+            height: 41px;
+            text-align: center;
+        }
+
+        .nav li a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            /* 行高=父元素高度，实现文字垂直居中 */
+            line-height: 41px;
+        }
+        .nav>li>a:hover{
+            background-color: gray;
+        }
+
+        /* 二级菜单 */
+        .nav ul{
+            display: block;
+            position: absolute;
+            /* 距离一级菜单底部0，距顶端为高度41px */
+            top: 41px;
+            /* 与一级菜单重叠 */
+            left: 0;
+            /* 宽度与一级菜单一致 */
+            width: 100%;
+            border-left: 1px solid rgb(212, 135, 34);
+            border-right: 1px solid rgb(212, 135, 34);
+
+        }
+        .nav ul li{
+            border-bottom: 1px solid rgb(212, 135, 34);
+        }
+        .nav ul li a:hover{
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#">Callme</a>
+            <ul style="display: none;">
+                <li>
+                    <a href="">QQ</a>
+                </li>
+                <li>
+                    <a href="">WeChat</a>
+                </li>
+                <li>
+                    <a href="">Email</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Callme</a>
+            <ul style="display: none;">
+                <li>
+                    <a href="">QQ</a>
+                </li>
+                <li>
+                    <a href="">WeChat</a>
+                </li>
+                <li>
+                    <a href="">Email</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Callme</a>
+            <ul style="display: none;">
+                <li>
+                    <a href="">QQ</a>
+                </li>
+                <li>
+                    <a href="">WeChat</a>
+                </li>
+                <li>
+                    <a href="">Email</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Callme</a>
+            <ul style="display: none;">
+                <li>
+                    <a href="">QQ</a>
+                </li>
+                <li>
+                    <a href="">WeChat</a>
+                </li>
+                <li>
+                    <a href="">Email</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        var nav=document.querySelector('.nav');
+        // 得到4个小li
+        var lis=nav.children;
+
+        for(var i=0;i<lis.length;i++){
+            lis[i].onmouseover=function(){
+                this.children[1].style.display='block';
+            }
+            lis[i].onmouseout=function(){
+                this.children[1].style.display='none';
+            }
+        }
+    </script>
+</body>
+
+</html>
