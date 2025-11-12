@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态生成表格</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        table{
+            width: 500px;
+            /* 左 上 */
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        td,th{
+            border: 1px solid gray;
+        }
+        thead tr{
+            height: 40px;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        var datas = [{
+            name: '魏璎珞',
+            subject: 'JavaScript',
+            score: 100
+        }, {
+            name: '弘历',
+            subject: 'JavaScript',
+            score: 98
+        }, {
+            name: '傅恒',
+            subject: 'JavaScript',
+            score: 99
+        }, {
+            name: '明玉',
+            subject: 'JavaScript',
+            score: 88
+        }, {
+            name: '大猪蹄子',
+            subject: 'JavaScript',
+            score: 0
+        }];
+
+        // 创建tbody的行，有几个元素就有几行
+        var tbody=document.querySelector('tbody')
+        for(var i=0;i<datas.length;i++){
+            var tr=document.createElement('tr');
+            tbody.appendChild(tr);
+            for(var k in datas[i]){
+                // k得到属性名，data[i]得到属性值
+                var td=document.createElement('td');
+                td.innerHTML=datas[i][k];
+                tr.appendChild(td);
+            }
+            // 创建单元格——删除
+            var td=document.createElement('td');
+            td.innerHTML='<a href="javascript:;">删除</a>';
+            tr.appendChild(td);
+
+            var del=document.querySelectorAll('a');
+            for(var i=0;i<del.length;i++){
+                del[i].onclick=function(){
+                    // tr td a 删除一整行——爸爸的爸爸
+                    tbody.removeChild(this.parentNode.parentNode);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
